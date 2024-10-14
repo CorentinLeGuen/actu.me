@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 
 from sqlalchemy import ForeignKey, Column, Integer, Table
 from sqlalchemy.orm import mapped_column, Mapped, relationship, DeclarativeBase
@@ -31,7 +31,7 @@ class Article(Base):
 
     id: Mapped[int] = mapped_column(primary_key=True)
     title: Mapped[str]
-    content: Mapped[str]
+    content: Mapped[Optional[str]]
     origin: Mapped[str]
 
     categories: Mapped[List[Category]] = relationship(secondary=association_table)
